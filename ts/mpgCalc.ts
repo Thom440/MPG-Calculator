@@ -9,18 +9,13 @@ function isValid():boolean{
     let isAllDataValid:boolean = true;
     // Validate miles driven, display error if invalid
     isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
-    let gallonsBox:HTMLInputElement = <HTMLInputElement>document.getElementById("gallons");
-    let gallonsUsed:string = gallonsBox.value;
-    if (gallonsUsed == "" || isNaN(parseFloat(gallonsUsed))) {
-        isAllDataValid = false;
-        gallonsBox.nextElementSibling.innerHTML = "Gallons used is required and must be a number";
-    }
+    isAllDataValid = validateData("gallons", "Gallons used is required and must be a number")
 
     return isAllDataValid;
 }
 
 function validateData(id:string, errMsg:string):boolean {
-    let inputBox: HTMLInputElement = <HTMLInputElement>document.getElementById("miles");
+    let inputBox: HTMLInputElement = <HTMLInputElement>document.getElementById(id);
     let inputBoxValue: string = inputBox.value;
     if (inputBoxValue == "" || isNaN(parseFloat(inputBoxValue))) {
         

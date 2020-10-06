@@ -2,16 +2,11 @@ function isValid() {
     clearSpans();
     var isAllDataValid = true;
     isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
-    var gallonsBox = document.getElementById("gallons");
-    var gallonsUsed = gallonsBox.value;
-    if (gallonsUsed == "" || isNaN(parseFloat(gallonsUsed))) {
-        isAllDataValid = false;
-        gallonsBox.nextElementSibling.innerHTML = "Gallons used is required and must be a number";
-    }
+    isAllDataValid = validateData("gallons", "Gallons used is required and must be a number");
     return isAllDataValid;
 }
 function validateData(id, errMsg) {
-    var inputBox = document.getElementById("miles");
+    var inputBox = document.getElementById(id);
     var inputBoxValue = inputBox.value;
     if (inputBoxValue == "" || isNaN(parseFloat(inputBoxValue))) {
         inputBox.nextElementSibling.innerHTML = errMsg;
