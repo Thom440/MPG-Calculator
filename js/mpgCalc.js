@@ -1,9 +1,13 @@
 function isValid() {
     clearSpans();
-    var isAllDataValid = true;
-    isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
-    isAllDataValid = validateData("gallons", "Gallons used is required and must be a number");
-    return isAllDataValid;
+    var isMilesDataValid = true;
+    var isGallonsDataValid = true;
+    isMilesDataValid = validateData("miles", "Miles driven is required and must be a number");
+    isGallonsDataValid = validateData("gallons", "Gallons used is required and must be a number");
+    if (!isMilesDataValid || !isGallonsDataValid) {
+        return false;
+    }
+    return true;
 }
 function validateData(id, errMsg) {
     var inputBox = document.getElementById(id);

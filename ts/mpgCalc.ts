@@ -6,12 +6,17 @@ function isValid():boolean{
     clearSpans();
     //function should validate form entries
     //and return true or false corresponding to validity
-    let isAllDataValid:boolean = true;
+    let isMilesDataValid:boolean = true;
+    let isGallonsDataValid:boolean = true;
     // Validate miles driven, display error if invalid
-    isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
-    isAllDataValid = validateData("gallons", "Gallons used is required and must be a number")
+    isMilesDataValid = validateData("miles", "Miles driven is required and must be a number");
+    isGallonsDataValid = validateData("gallons", "Gallons used is required and must be a number")
 
-    return isAllDataValid;
+    if (!isMilesDataValid || !isGallonsDataValid) {
+        return false;
+    }
+
+    return true;
 }
 
 function validateData(id:string, errMsg:string):boolean {
