@@ -79,6 +79,10 @@ function resetForm():void {
     }
 
     // reset spans
+    clearSpans();
+}
+
+function clearSpans() {
     let allSpans = document.querySelectorAll("span");
     for (let i = 0; i < allSpans.length; i++) {
         let currSpan = allSpans[i];

@@ -45,6 +45,9 @@ function resetForm() {
         var currBox = allBoxes[i];
         currBox.value = "";
     }
+    clearSpans();
+}
+function clearSpans() {
     var allSpans = document.querySelectorAll("span");
     for (var i = 0; i < allSpans.length; i++) {
         var currSpan = allSpans[i];
