@@ -3,16 +3,12 @@
  * @returns {boolean} Returns true is all data is valid on the form, or false is something is invalid
  */
 function isValid():boolean{
+    clearSpans();
     //function should validate form entries
     //and return true or false corresponding to validity
     let isAllDataValid:boolean = true;
     // Validate miles driven, display error if invalid
-    let milesBox:HTMLInputElement = <HTMLInputElement>document.getElementById("miles");
-    let milesDriven:string = milesBox.value;
-    if (milesDriven == "" || isNaN(parseFloat(milesDriven))){
-        isAllDataValid = false;
-        milesBox.nextElementSibling.innerHTML = "Miles Driven is required and must be a number";
-    }
+    isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
     let gallonsBox:HTMLInputElement = <HTMLInputElement>document.getElementById("gallons");
     let gallonsUsed:string = gallonsBox.value;
     if (gallonsUsed == "" || isNaN(parseFloat(gallonsUsed))) {
@@ -21,6 +17,17 @@ function isValid():boolean{
     }
 
     return isAllDataValid;
+}
+
+function validateData(id:string, errMsg:string):boolean {
+    let inputBox: HTMLInputElement = <HTMLInputElement>document.getElementById("miles");
+    let inputBoxValue: string = inputBox.value;
+    if (inputBoxValue == "" || isNaN(parseFloat(inputBoxValue))) {
+        
+        inputBox.nextElementSibling.innerHTML = errMsg;
+        return false;
+    }
+    return true;
 }
 
 /** 

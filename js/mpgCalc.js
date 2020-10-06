@@ -1,11 +1,7 @@
 function isValid() {
+    clearSpans();
     var isAllDataValid = true;
-    var milesBox = document.getElementById("miles");
-    var milesDriven = milesBox.value;
-    if (milesDriven == "" || isNaN(parseFloat(milesDriven))) {
-        isAllDataValid = false;
-        milesBox.nextElementSibling.innerHTML = "Miles Driven is required and must be a number";
-    }
+    isAllDataValid = validateData("miles", "Miles driven is required and must be a number");
     var gallonsBox = document.getElementById("gallons");
     var gallonsUsed = gallonsBox.value;
     if (gallonsUsed == "" || isNaN(parseFloat(gallonsUsed))) {
@@ -13,6 +9,15 @@ function isValid() {
         gallonsBox.nextElementSibling.innerHTML = "Gallons used is required and must be a number";
     }
     return isAllDataValid;
+}
+function validateData(id, errMsg) {
+    var inputBox = document.getElementById("miles");
+    var inputBoxValue = inputBox.value;
+    if (inputBoxValue == "" || isNaN(parseFloat(inputBoxValue))) {
+        inputBox.nextElementSibling.innerHTML = errMsg;
+        return false;
+    }
+    return true;
 }
 function main() {
     if (isValid()) {
