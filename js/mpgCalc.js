@@ -40,8 +40,8 @@ window.onload = function () {
     calcBtn.onclick = main;
     var clearBtn = document.getElementById("clear");
     clearBtn.onclick = resetForm;
-    document.getElementById("miles").ondblclick = clearMiles;
-    document.getElementById("gallons").ondblclick = clearGallons;
+    document.getElementById("miles").ondblclick = clearInput;
+    document.getElementById("gallons").ondblclick = clearInput;
 };
 function resetForm() {
     var allBoxes = document.querySelectorAll("input[type = text]");
@@ -58,11 +58,7 @@ function clearSpans() {
         currSpan.innerHTML = "*";
     }
 }
-function clearMiles() {
-    var clearMilesBox = document.getElementById("miles");
-    clearMilesBox.value = "";
-}
-function clearGallons() {
-    var clearGallonsBox = document.getElementById("gallons");
-    clearGallonsBox.value = "";
+function clearInput() {
+    var clearTextBox = this;
+    clearTextBox.value = "";
 }

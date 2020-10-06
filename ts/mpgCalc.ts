@@ -73,8 +73,8 @@ window.onload = function() {
     let clearBtn:HTMLElement = document.getElementById("clear");
     clearBtn.onclick = resetForm;
 
-    document.getElementById("miles").ondblclick = clearMiles;
-    document.getElementById("gallons").ondblclick = clearGallons;
+    document.getElementById("miles").ondblclick = clearInput;
+    document.getElementById("gallons").ondblclick = clearInput;
 }
 
 function resetForm():void {
@@ -97,12 +97,7 @@ function clearSpans() {
     }
 }
 
-function clearMiles():void {
-    let clearMilesBox:HTMLInputElement = <HTMLInputElement>document.getElementById("miles");
-    clearMilesBox.value = "";
-}
-
-function clearGallons():void {
-    let clearGallonsBox:HTMLInputElement = <HTMLInputElement>document.getElementById("gallons");
-    clearGallonsBox.value = "";
+function clearInput() {
+    let clearTextBox:HTMLInputElement = this;
+    clearTextBox.value = "";
 }
